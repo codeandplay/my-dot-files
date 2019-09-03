@@ -1,4 +1,4 @@
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 export TERM=xterm-256color
 export BUNDLER_EDITOR="s"
@@ -88,3 +88,10 @@ export NVM_DIR="/Users/rem/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='find . -path ./node_modules -prune -o -print'
+
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+    tmux attach -t default || tmux new -s default
+fi
+
+alias vim=nvim
